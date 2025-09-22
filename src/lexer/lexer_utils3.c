@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:47:29 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 19:09:01 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/22 19:31:20 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	append_S_quoted(char *line, int *i, char **final_word)
 {
 	char	*word;
-	
+
 	word = extract_S_quoted(line, i);
 	if (!word)
 		{
@@ -82,7 +82,7 @@ static int	append_unquoted(char *line, int *i, char **final_word)
 	return (1);
 }
 
-static int	process_quote(char *line, int *i, char **final_word)
+static int	process_quote_type(char *line, int *i, char **final_word)
 {
 	if (line[*i] == '\'')
 		return (append_S_quoted(line, i, final_word));
