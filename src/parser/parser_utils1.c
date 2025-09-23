@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:59:36 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:53 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:39 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction qui saute la redirection pour prendre
 le nom du fichier qui vient juste apres la redirection.
 ca evite de mettre la redirection dans args*/

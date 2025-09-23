@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:19:51 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:05 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:34:54 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 /*fonction pour checker les operateurs ensuite les extraire
 et les rajouter dans un structure token tout en signalant

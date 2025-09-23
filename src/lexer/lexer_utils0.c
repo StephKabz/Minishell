@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 01:04:14 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:51:56 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:34:50 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction pour verifier si c'est un espace blanc*/
 int	is_white_space(char c)
 {

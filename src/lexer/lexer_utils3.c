@@ -6,17 +6,18 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:47:29 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 19:31:20 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:51:33 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 static int	append_S_quoted(char *line, int *i, char **final_word)
 {
 	char	*word;
 
-	word = extract_S_quoted(line, i);
+	word = extract_s_quoted(line, i);
 	if (!word)
 		{
 			free(*final_word);
@@ -34,7 +35,7 @@ static int	append_D_quoted(char *line, int *i, char **final_word)
 	char	*word;
 	char	*temp;
 
-	temp = extract_D_quoted(line, i);
+	temp = extract_d_quoted(line, i);
 	if (!temp)
 	{
 		free(*final_word);

@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 13:39:48 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:39 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:25 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fichier pour verifier que la ligne de commande
 est valide dans sa syntaxe. toutes ces fonctions
 seront ensuite appeler dans le fichier

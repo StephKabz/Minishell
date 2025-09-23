@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:38:38 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 19:00:45 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:34:46 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction pour trouver le mot en double quote""*/
 char	*extract_d_quoted(char *line, int *i)
 {

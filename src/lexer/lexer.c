@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 19:51:22 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:30 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:20 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 static int	handle_operator_token(char *line, int *i, t_token **tokens)
 {

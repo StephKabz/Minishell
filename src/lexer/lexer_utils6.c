@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 15:48:48 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:22 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:15 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction qui cree un nouveau token
 ajouter une string et lui donne son type*/
 t_token	*new_token(char *string, int type)

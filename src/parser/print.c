@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_tokens.c                                     :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:38:36 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/08/20 01:46:03 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:36:13 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "../include/minishell.h"
+#include "../include/parse.h"
 
 static const char	*get_type_char(int type)
 {

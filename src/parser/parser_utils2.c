@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:52:44 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:58 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:43 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 int	parse_word(t_token **token, t_command *cmd, int *i)
 {

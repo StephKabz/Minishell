@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:49:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:16 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:12 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction pour liberer la memoire de toutes les cmd
 de la ligne*/
 void	free_cmd_list(t_command *cmd)

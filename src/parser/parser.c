@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:08:37 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:53:09 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:53:48 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 static int	handle_redirection_token(t_token **token, t_command *cmd)
 {

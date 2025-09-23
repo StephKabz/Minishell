@@ -1,8 +1,9 @@
 # ===== Project =====
 NAME      := minishell
 CC        := gcc
-CFLAGS    := -Wall -Wextra -Werror -Iinclude -I/usr/local/opt/readline/include
-LDFLAGS   := -L/usr/local/opt/readline/lib
+BREW_PREFIX := $(shell brew --prefix)
+CFLAGS    := -Wall -Wextra -Werror -Iinclude -I$(BREW_PREFIX)/opt/readline/include
+LDFLAGS   := -L$(BREW_PREFIX)/opt/readline/lib
 LDLIBS    := -lreadline
 
 # ===== Sources =====

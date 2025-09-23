@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:24:27 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:44 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:32 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 
 /*fonction pour verifier que les quotes sont bien fermé*/
 static int	check_quotes(char *line)

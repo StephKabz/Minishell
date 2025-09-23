@@ -6,11 +6,12 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:05:02 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/22 18:52:49 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 01:35:36 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
+#include "../include/parse.h"
 /*fonction pour compter les nombre de tokens
 de type word qui seront ajouter dans les args
 de ma commande*/
