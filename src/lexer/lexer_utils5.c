@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:49:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:12 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 04:23:26 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	free_cmd_list(t_command *cmd)
 }
 /*Fonction pour clalculer la nouvelle taille total
 avec la valeur de chaques variables d'environement*/
-int	calculate_total_size(char *str)
+int	calculate_total_size(char *str, t_env *env)
 {
 	int		total;
 	int		i;
@@ -56,7 +56,7 @@ int	calculate_total_size(char *str)
 	while (str[i])
 	{
 		if (str[i] == '$' && (var_start_ok(str[i + 1]) || str[i + 1] == '?'))
-			total += get_var_len(str, &i);
+			total += get_var_len(str, &i, env);
 		else
 		{
 			total++;
@@ -67,7 +67,7 @@ int	calculate_total_size(char *str)
 }
 /*fonction pour ajouter la valeur de la variable
 d'environement dans la ligne de commande*/
-void	add_var_value(char *str, char *result, int *i, int *j)
+void	add_var_value(char *str, char *result, int *i, int *j, t_env *env)
 {
 	char	*var_name;
 	char	*var_value;
@@ -76,7 +76,7 @@ void	add_var_value(char *str, char *result, int *i, int *j)
 	var_name = extract_var_name(str, i);
 	if (!var_name)
 		return ;
-	var_value = get_var_value(var_name);
+	var_value = get_var_value(var_name, env);
 	if (var_value)
 	{
 		k = 0;
@@ -90,7 +90,7 @@ void	add_var_value(char *str, char *result, int *i, int *j)
 si elles sont dans les doubles quotes
 les remplacer ensuite dans la ligne de commande
 par leur valeur*/
-char	*expand_variables(char *str)
+char	*expand_variables(char *str, t_env *env)
 {
 	char	*result;
 	int		i;
@@ -100,7 +100,7 @@ char	*expand_variables(char *str)
 		return (NULL);
 	i = 0;
 	j = 0;
-	result = malloc((calculate_total_size(str)) * sizeof(char));
+	result = malloc((calculate_total_size(str, env)) * sizeof(char));
 	if (!result)
 		return (NULL);
 	while (str[i])
@@ -108,7 +108,7 @@ char	*expand_variables(char *str)
 		if (str[i] == '$' && check_special_dollar_case(str, i))
 			result[j++] = str[i++];
 		else if (str[i] == '$' && (var_start_ok(str[i + 1]) || str[i + 1] == '?'))
-			add_var_value(str, result, &i, &j);
+			add_var_value(str, result, &i, &j, env);
 		else
 			result[j++] = str[i++];
 	}

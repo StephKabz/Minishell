@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 18:49:28 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:08 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 04:18:07 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,24 @@ char	*extract_var_name(char *str, int *i)
 /*fonction pour sortir la valeur de la variable d'environement
 ou son chemin
 exemple '$USER = nom_de_hote'*/
-char	*get_var_value(char *name)
+char	*get_var_value(char *name, t_env *env)
 {
-	char	*var_name;
+	char		*var_name;
+	const char	*value;
 
 	if (!name)
 		return (NULL);
 	if (ft_strncmp(name, "?", 1) == 0)
 		return (ft_itoa(g_exit_code));
-	var_name = ft_strdup(getenv(name));
+	value = env_get(env, name);
+	var_name = ft_strdup(value);
 	if (!var_name)
 		return (ft_strdup(""));
 	return (var_name);
 }
 /*fonction pour trouver la taille de la value de notre variable
 d'environement*/
-int	get_var_len(char *str, int *i)
+int	get_var_len(char *str, int *i, t_env *env)
 {
 	int		var_len;
 	char	*var_name;
@@ -95,7 +97,7 @@ int	get_var_len(char *str, int *i)
 	var_name = extract_var_name(str, i);
 	if (!var_name)
 		return (0);
-	var_value = get_var_value(var_name);
+	var_value = get_var_value(var_name, env);
 	if (var_value)
 		var_len += ft_strlen(var_value);
 	free(var_value);

@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebouali <ebouali@student.s19.be>           +#+  +:+       +#+        */
+/*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:28:36 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/03 19:28:39 by ebouali          ###   ########.fr       */
+/*   Updated: 2025/09/23 02:19:21 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
+#include "../../include/minishell.h"
+
 static int	is_n_flag(const char *s)
 {
-	int	i;
-
-	if (!s || s[0] != '-' || s[1] != 'n')
+	if (!s || s[0] != '-' || s[1] != 'n' || s[2] != '\0')
 		return (0);
-	i = 2;
-	while (s[i] == 'n')
-		i++;
-	return (s[i] == '\0');
+	return (1);
+	//Cette logique accepte -nnn ou -nnnn comme des flags -n valides, mais bash n'accepte que -n exactement.
 }
 
 static void	print_args(char **argv, int i)

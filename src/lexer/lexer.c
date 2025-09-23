@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 19:51:22 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:20 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/23 04:38:30 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static int	handle_operator_token(char *line, int *i, t_token **tokens)
 	free(token_tmp.string);
 	return (1);
 }
-static int	handle_word_token(char *line, int *i, t_token **tokens)
+static int	handle_word_token(char *line, int *i, t_token **tokens, t_env *env)
 {
 	char	*word;
 
 	if (!line || !tokens || !i)
 		return (0);
-	word = collect_word(line, i);
+	word = collect_word(line, i, env);
 	if (!word)
 	{
 		free_token(*tokens);
@@ -61,7 +61,7 @@ static int	handle_word_token(char *line, int *i, t_token **tokens)
 sauter les espaces blanc, trouver quels type de mots on a
 l'ajouter dans la liste chainé avec son mots et son type
 et continuer jusqu'a la fin de la ligne de commande*/
-t_token	*convert_line_to_tokens(char *line)
+t_token	*convert_line_to_tokens(char *line, t_env *env)
 {
 	int		i;
 	t_token	*tokens;
@@ -82,7 +82,7 @@ t_token	*convert_line_to_tokens(char *line)
 		}
 		else
 		{
-			if (!handle_word_token(line, &i, &tokens))
+			if (!handle_word_token(line, &i, &tokens, env))
 				return (NULL);
 		}
 	}

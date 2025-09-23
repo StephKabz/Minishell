@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebouali <ebouali@student.s19.be>           +#+  +:+       +#+        */
+/*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 14:59:41 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/22 14:59:44 by ebouali          ###   ########.fr       */
+/*   Updated: 2025/09/23 04:39:30 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	process_line(char *line, t_env *env)
 
 	if (is_blank_line(line))
 		return ;
-	toks = convert_line_to_tokens(line);
+	toks = convert_line_to_tokens(line, env);
 	if (!toks)
 	{
 		ft_putendl_fd("Lexing failed: invalid input", 2);
