@@ -6,20 +6,22 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:28:36 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/23 02:19:21 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/24 01:40:41 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-#include "../../include/minishell.h"
-
 static int	is_n_flag(const char *s)
 {
-	if (!s || s[0] != '-' || s[1] != 'n' || s[2] != '\0')
+	int	i;
+
+	if (!s || s[0] != '-' || !s[1])
 		return (0);
-	return (1);
-	//Cette logique accepte -nnn ou -nnnn comme des flags -n valides, mais bash n'accepte que -n exactement.
+	i = 1;
+	while (s[i] && s[i] == 'n')
+		i++;
+	return (s[i] == '\0');
 }
 
 static void	print_args(char **argv, int i)

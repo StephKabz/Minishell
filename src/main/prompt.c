@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 14:59:41 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/23 04:39:30 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 04:18:09 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	exec_cmds(t_command *cmds, t_env *env)
 	else
 		handle_command(cmds, env);
 }
-
 static void	process_line(char *line, t_env *env)
 {
 	t_token		*toks;
@@ -44,9 +43,15 @@ static void	process_line(char *line, t_env *env)
 		return ;
 	}
 	cmds = parsing_cmds(&toks);
-	if (!cmds || !normalize_parsed_cmds(cmds))
+	if (!cmds)
 	{
 		free_token(toks);
+		return ;
+	}
+	if (!normalize_parsed_cmds(cmds))
+	{
+		free_token(toks);
+		free_cmd_list(cmds);
 		return ;
 	}
 	exec_cmds(cmds, env);

@@ -6,12 +6,24 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:49:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 04:23:26 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 03:12:21 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 #include "../include/parse.h"
+
+static void free_redir_list(t_redir *redir)
+{
+    t_redir *tmp;
+    while (redir) {
+        tmp = redir->next;
+        if (redir->target) free(redir->target);
+        if (redir->fd > STDERR_FILENO) close(redir->fd);
+        free(redir);
+        redir = tmp;
+    }
+}
 /*fonction pour liberer la memoire de toutes les cmd
 de la ligne*/
 void	free_cmd_list(t_command *cmd)
@@ -37,6 +49,10 @@ void	free_cmd_list(t_command *cmd)
 			free(cmd->infile);
 		if (cmd->outfile)
 			free(cmd->outfile);
+		if (cmd->delimiter)
+			free(cmd->delimiter);
+		if (cmd->redir)
+			free_redir_list(cmd->redir);
 		tmp = cmd->next;
 		free(cmd);
 		cmd = tmp;

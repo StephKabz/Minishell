@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:02:34 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/23 08:46:04 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 01:52:03 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct s_command
 	char				**argv;
 	char				*infile;
 	char				*outfile;
+	char				*delimiter;
 	int					heredoc;
 	int					append;
 	t_redir				*redir;

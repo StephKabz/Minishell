@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   normalize_cmds.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebouali <ebouali@student.s19.be>           +#+  +:+       +#+        */
+/*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 13:26:22 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/22 13:26:32 by ebouali          ###   ########.fr       */
+/*   Updated: 2025/09/25 03:21:53 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	normalize_parsed_cmds(t_command *head)
 	cur = head;
 	while (cur)
 	{
-		if (cur->infile && cur->heredoc == 1)
-			if (!push_redir(cur, REDIR_HEREDOC, cur->infile))
+		if (cur->delimiter && cur->heredoc == 1)
+			if (!push_redir(cur, REDIR_HEREDOC, cur->delimiter))
 				return (0);
 		if (cur->infile && cur->heredoc == 0)
 			if (!push_redir(cur, REDIR_INPUT, cur->infile))
@@ -84,6 +84,7 @@ void	clear_parser_redir_fields(t_command *head)
 	{
 		cur->infile = NULL;
 		cur->outfile = NULL;
+		cur->delimiter = NULL;
 		cur = cur->next;
 	}
 }

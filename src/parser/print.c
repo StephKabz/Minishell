@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:38:36 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:36:13 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 01:55:22 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ void	print_cmd(t_command *cmd)
 		printf("args = [%s]\n", cmd->argv[i]);
 		i++;
 	}
-	printf("infile      =      [%s]\n", cmd->infile ? cmd->infile : "NULL");
-	printf("outfile      =      [%s]\n", cmd->outfile ? cmd->outfile : "NULL");
-	printf("append      =      [%d]\n", cmd->append);
-	printf("heredoc      =      [%d]\n", cmd->heredoc);
+	printf("infile          = [%s]\n", cmd->infile ? cmd->infile : "NULL");
+	printf("outfile         = [%s]\n", cmd->outfile ? cmd->outfile : "NULL");
+	printf("heredoc_delim   = [%s]\n", cmd->delimiter ? cmd->delimiter : "NULL");  // AJOUTER
+	printf("append          = [%d]\n", cmd->append);
+	printf("heredoc         = [%d]\n", cmd->heredoc);
 }
 
 void	print_all_cmds(t_command *cmd_list)

@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:52:44 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:43 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 02:10:47 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int	parse_redir_in(t_token **token, t_command *cmd)
 
 int	parse_heredoc(t_token **token, t_command *cmd)
 {
-	if (cmd->infile)
-		free(cmd->infile);
-	cmd->infile = ft_strdup((*token)->next->string);
-	if (!cmd->infile)
+	if (cmd->delimiter)
+		free(cmd->delimiter);
+	cmd->delimiter = ft_strdup((*token)->next->string);
+	if (!cmd->delimiter)
 		return (0);
 	cmd->heredoc = 1;
 	*token = (*token)->next->next;

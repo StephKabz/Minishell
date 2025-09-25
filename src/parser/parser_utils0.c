@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:05:02 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:36 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 03:24:12 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_command	*init_cmd(int word_count)
 	new_cmd->next = NULL;
 	new_cmd->infile = NULL;
 	new_cmd->outfile = NULL;
+	new_cmd->delimiter = NULL;
+	new_cmd->redir = NULL;
 	return (new_cmd);
 }
 /*ma fonction ft_strdup qui libere la liste
