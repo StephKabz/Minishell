@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 19:51:22 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/25 05:24:54 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 23:12:32 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,39 @@ static int	handle_word_token(char *line, int *i, t_token **tokens, t_env *env)
 	}
 	free(word);
 	return (1);
+}
+
+static void	free_argv(char **argv)
+{
+	int	i;
+
+	if (!argv)
+		return ;
+	i = 0;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
+}
+
+void	free_cmd_list(t_command *cmd)
+{
+	t_command	*tmp;
+
+	while (cmd)
+	{
+		free_argv(cmd->argv);
+		if (cmd->infile)
+			free(cmd->infile);
+		if (cmd->outfile)
+			free(cmd->outfile);
+		if (cmd->delimiter)
+			free(cmd->delimiter);
+		if (cmd->redir)
+			free_redir_list(cmd->redir);
+		tmp = cmd->next;
+		free(cmd);
+		cmd = tmp;
+	}
 }
 
 t_token	*convert_line_to_tokens(char *line, t_env *env)

@@ -6,14 +6,14 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:49:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/25 05:24:27 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 23:16:08 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 #include "../include/parse.h"
 
-static void free_redir_list(t_redir *redir)
+void free_redir_list(t_redir *redir)
 {
     t_redir *tmp;
     while (redir) {
@@ -23,39 +23,6 @@ static void free_redir_list(t_redir *redir)
         free(redir);
         redir = tmp;
     }
-}
-
-void	free_cmd_list(t_command *cmd)
-{
-	int	i;
-	t_command	*tmp;
-
-	if (!cmd)
-		return ;
-	while (cmd)
-	{
-		i = 0;
-		if (cmd->argv)
-		{
-			while (cmd->argv[i])
-			{
-				free(cmd->argv[i]);
-				i++;
-			}
-			free(cmd->argv);
-		}
-		if (cmd->infile)
-			free(cmd->infile);
-		if (cmd->outfile)
-			free(cmd->outfile);
-		if (cmd->delimiter)
-			free(cmd->delimiter);
-		if (cmd->redir)
-			free_redir_list(cmd->redir);
-		tmp = cmd->next;
-		free(cmd);
-		cmd = tmp;
-	}
 }
 
 int	calculate_total_size(char *str, t_env *env)

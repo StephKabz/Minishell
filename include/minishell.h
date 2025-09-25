@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:02:34 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/25 05:20:54 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 23:16:37 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void					free_cmd_list(t_command *head);
 /* ===== LEXER/PARSER/CHECKER (du binôme) ===== */
 t_token					*convert_line_to_tokens(char *line, t_env *env);
 void					free_token(t_token *head);
+void					free_redir_list(t_redir *redir);
 int						is_valid_line(char *line, t_token *tokens);
 t_command				*parsing_cmds(t_token **token);
 

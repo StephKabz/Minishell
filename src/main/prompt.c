@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 14:59:41 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/25 04:18:09 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 23:09:46 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	exec_cmds(t_command *cmds, t_env *env)
 	else
 		handle_command(cmds, env);
 }
+
 static void	process_line(char *line, t_env *env)
 {
 	t_token		*toks;
@@ -33,27 +34,14 @@ static void	process_line(char *line, t_env *env)
 		return ;
 	toks = convert_line_to_tokens(line, env);
 	if (!toks)
-	{
-		ft_putendl_fd("Lexing failed: invalid input", 2);
-		return ;
-	}
+		return ((void)ft_putendl_fd("Lexing failed: invalid input", 2));
 	if (!is_valid_line(line, toks))
-	{
-		free_token(toks);
-		return ;
-	}
+		return ((void)free_token(toks));
 	cmds = parsing_cmds(&toks);
 	if (!cmds)
-	{
-		free_token(toks);
-		return ;
-	}
+		return ((void)free_token(toks));
 	if (!normalize_parsed_cmds(cmds))
-	{
-		free_token(toks);
-		free_cmd_list(cmds);
-		return ;
-	}
+		return (free_token(toks), free_cmd_list(cmds));
 	exec_cmds(cmds, env);
 	free_token(toks);
 	free_cmd_list(cmds);
