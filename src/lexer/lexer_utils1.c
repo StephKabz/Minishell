@@ -6,13 +6,13 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:38:38 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:34:46 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:22:50 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 #include "../include/parse.h"
-/*fonction pour trouver le mot en double quote""*/
+
 char	*extract_d_quoted(char *line, int *i)
 {
 	int		start;
@@ -20,13 +20,13 @@ char	*extract_d_quoted(char *line, int *i)
 
 	start = 0;
 	end = 0;
-	if (!line || !line[*i] || line[*i] != '"')/*verifier le debut du double quote*/
+	if (!line || !line[*i] || line[*i] != '"')
 		return (NULL);
 	start = *i + 1;
 	end = start;
 	while (line[end] && line[end] != '"')
 		end++;
-	if (line[end] != '"')/*verifier la fin du double quote*/
+	if (line[end] != '"')
 	{
 		(*i) = end;
 		return (NULL);
@@ -34,7 +34,7 @@ char	*extract_d_quoted(char *line, int *i)
 	(*i) = end + 1;
 	return(ft_strndup(&line[start], (size_t)(end - start)));
 }
-/*fonction pour trouver le mot en single quote''*/
+
 char	*extract_s_quoted(char *line, int *i)
 {
 	int		start;
@@ -42,13 +42,13 @@ char	*extract_s_quoted(char *line, int *i)
 
 	start = 0;
 	end = 0;
-	if (!line || !line[*i] || line[*i] != '\'')/*verifier le debut du single quote*/
+	if (!line || !line[*i] || line[*i] != '\'')
 		return (NULL);
 	start = *i + 1;
 	end = start;
 	while (line[end] && line[end] != '\'')
 		end++;
-	if (line[end] != '\'')/*verifier la fin du double quote*/
+	if (line[end] != '\'')
 	{
 		(*i) = end;
 		return (NULL);
@@ -56,7 +56,7 @@ char	*extract_s_quoted(char *line, int *i)
 	(*i) = end + 1;
 	return(ft_strndup(&line[start], (size_t)(end - start)));
 }
-/*fonction pour trouver le mot sans quote*/
+
 char	*extract_unquoted(char *line, int *i)
 {
 	int		start;

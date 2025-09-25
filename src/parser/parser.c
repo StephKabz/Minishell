@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:08:37 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/25 04:16:23 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:20:12 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,8 @@ static int	process_token(t_token **token, t_command *cmd, int *i)
 	         (*token)->type == TOKEN_REDIR_APPEND ||
 	         (*token)->type == TOKEN_HEREDOC)
 		return(handle_redirection_token(token, cmd));
-	
-	// Si on arrive ici, c'est un token non géré
-	printf("DEBUG: Unhandled token type: %d, value: %s\n", (*token)->type, (*token)->string);
-	*token = (*token)->next;  // AJOUTER: Avancer même pour les tokens non gérés
+	*token = (*token)->next;
 	return (1);
-	// if ((*token)->type == TOKEN_WORD)
-	// 	return (parse_word(token, cmd, i));
-	// else if ((*token)->type >= TOKEN_REDIR_IN 
-	// && (*token)->type <= TOKEN_REDIR_APPEND)
-	// 	return(handle_redirection_token(token, cmd));
-	// return (1);
 }
 
 t_command	*parse_single_command(t_token **token)
@@ -97,8 +88,6 @@ t_command	*parsing_cmds(t_token **token)
 		else
 			last->next = new_cmd;
 		last = new_cmd;
-		//while (*token && (*token)->type != TOKEN_PIPE)
-		//	*token = (*token)->next;
 		if (*token && (*token)->type == TOKEN_PIPE)
 			*token = (*token)->next;
 		else

@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 19:51:22 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 04:38:30 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:24:54 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	handle_operator_token(char *line, int *i, t_token **tokens)
 	free(token_tmp.string);
 	return (1);
 }
+
 static int	handle_word_token(char *line, int *i, t_token **tokens, t_env *env)
 {
 	char	*word;
@@ -57,10 +58,7 @@ static int	handle_word_token(char *line, int *i, t_token **tokens, t_env *env)
 	free(word);
 	return (1);
 }
-/*fonction final qui va regarder dans la ligne de commande
-sauter les espaces blanc, trouver quels type de mots on a
-l'ajouter dans la liste chainé avec son mots et son type
-et continuer jusqu'a la fin de la ligne de commande*/
+
 t_token	*convert_line_to_tokens(char *line, t_env *env)
 {
 	int		i;

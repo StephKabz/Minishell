@@ -6,14 +6,13 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:24:27 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:35:32 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:26:10 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 #include "../include/parse.h"
 
-/*fonction pour verifier que les quotes sont bien fermé*/
 static int	check_quotes(char *line)
 {
 	int	in_double;
@@ -37,17 +36,13 @@ static int	check_quotes(char *line)
 		return (1);
 	return (0);
 }
-/*fonction pour afficher un message d'erreur
-en cas de probleme de syntaxe pour indiquer
-quel est le probleme detecter*/
+
 static int	error_line(char *message)
 {
 	ft_putendl_fd(message, 2);
 	return (0);
 }
-/*foction final pour verifier chaques problemes
-de syntaxte possible dans la ligne de commande.
-Elles fait appel a toutes les autres fonction.*/
+
 int	is_valid_line(char *line, t_token *tokens)
 {
 	if (!tokens)

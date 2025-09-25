@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 16:52:44 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/25 02:10:47 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:26:26 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	parse_redir_out(t_token **token, t_command *cmd)
 	*token = (*token)->next->next;
 	return (1);
 }
+
 int	parse_redir_append(t_token **token, t_command *cmd)
 {
 	if (cmd->outfile)

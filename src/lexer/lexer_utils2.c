@@ -6,16 +6,13 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 19:19:51 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 01:34:54 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:25:11 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 #include "../include/parse.h"
 
-/*fonction pour checker les operateurs ensuite les extraire
-et les rajouter dans un structure token tout en signalant
-via un boolean que c'est bien un operateur*/
 static int handle_input_redir(char *line, t_token *token, int *i)
 {
 	if (!line || !line[*i])
@@ -40,6 +37,7 @@ static int handle_input_redir(char *line, t_token *token, int *i)
 	}
 	return (0);
 }
+
 static int	handle_output_redir(char *line, t_token *token, int *i)
 {
 	if (!line || !line[*i])
@@ -64,6 +62,7 @@ static int	handle_output_redir(char *line, t_token *token, int *i)
 	}
 	return (0);
 }
+
 static int	handle_pipe(char *line, t_token *token, int *i)
 {
 	if (!line || !line[*i])

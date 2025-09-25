@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 16:02:34 by ebouali           #+#    #+#             */
-/*   Updated: 2025/09/25 01:52:03 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:20:54 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ typedef struct s_redir
 	struct s_redir		*next;
 }						t_redir;
 
-/* ===== COMMAND UNIFIÉE =====
-   - parser remplit: argv, infile, outfile, heredoc, append, next
-   - bridge remplit: redir (liste)
-*/
 typedef struct s_command
 {
 	char				**argv;

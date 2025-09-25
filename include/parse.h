@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 13:43:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/23 04:39:00 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:21:07 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,5 @@ t_command					*parsing_cmds(t_token **token);
 void						print_tokens(t_token *head);
 void						print_cmd(t_command *cmd);
 void						print_all_cmds(t_command *cmd_list);
-
-/*echo "bonjour $USER dans $HOME" < infile.txt | grep
-	-i "bonjour" | sort | uniq > sorted.txt*/
 
 #endif

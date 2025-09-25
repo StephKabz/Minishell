@@ -6,7 +6,7 @@
 /*   By: kingstephane <kingstephane@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 14:49:00 by kingstephan       #+#    #+#             */
-/*   Updated: 2025/09/25 03:12:21 by kingstephan      ###   ########.fr       */
+/*   Updated: 2025/09/25 05:24:27 by kingstephan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ static void free_redir_list(t_redir *redir)
         redir = tmp;
     }
 }
-/*fonction pour liberer la memoire de toutes les cmd
-de la ligne*/
+
 void	free_cmd_list(t_command *cmd)
 {
 	int	i;
@@ -58,8 +57,7 @@ void	free_cmd_list(t_command *cmd)
 		cmd = tmp;
 	}
 }
-/*Fonction pour clalculer la nouvelle taille total
-avec la valeur de chaques variables d'environement*/
+
 int	calculate_total_size(char *str, t_env *env)
 {
 	int		total;
@@ -81,8 +79,7 @@ int	calculate_total_size(char *str, t_env *env)
 	}
 	return (total + 1);
 }
-/*fonction pour ajouter la valeur de la variable
-d'environement dans la ligne de commande*/
+
 void	add_var_value(char *str, char *result, int *i, int *j, t_env *env)
 {
 	char	*var_name;
@@ -102,10 +99,7 @@ void	add_var_value(char *str, char *result, int *i, int *j, t_env *env)
 	free(var_name);
 	free(var_value);
 }
-/*fonction pour trouver les valeurs de variables d'environement
-si elles sont dans les doubles quotes
-les remplacer ensuite dans la ligne de commande
-par leur valeur*/
+
 char	*expand_variables(char *str, t_env *env)
 {
 	char	*result;
